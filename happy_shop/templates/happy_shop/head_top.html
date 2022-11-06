@@ -5,7 +5,7 @@
                 <b-icon size="is-small" pack="mdi" icon="star-plus-outline"></b-icon>
                 <span>收藏本站</span> 
             </a> -->
-            <span class="navbar-item">欢迎光临本店！</span>
+            <span class="navbar-item">Welcome！</span>
         </div>
 
         <div class="navbar-menu">
@@ -25,37 +25,37 @@
                             </a>
                         </template>
                         <b-dropdown-item custom aria-role="menuitem">
-                            欢迎来到 <b>BoMai商城！</b>
+                            Welcome to <b>BoMai！</b>
                         </b-dropdown-item>
                         <hr class="dropdown-divider">
-                        <b-dropdown-item has-link aria-role="menuitem">
+                        <!-- <b-dropdown-item has-link aria-role="menuitem">
                             <a href="{% url 'happy_shop:user_orders' %}" target="_blank">
                                 <b-icon icon="toy-brick-plus-outline" size="is-small"></b-icon>
                                 我的订单
                             </a>
-                        </b-dropdown-item>
+                        </b-dropdown-item> -->
                         <b-dropdown-item  @click="logout">
                             <b-icon icon="logout" size="is-small"></b-icon>
-                            退出
+                            Logout
                         </b-dropdown-item>
                     </b-dropdown>
                 {% else %}
                 <a href="{% url 'happy_shop:register' %}" class="navbar-item pl-5 pr-5" 
                     style="border-right:solid 1px #eee;border-left:solid 1px #eee;">
                     <b-icon size="is-small" pack="mdi" icon="account-plus-outline"></b-icon>
-                    <span>注册</span> 
+                    <span>Register</span> 
                     
                 </a> 
                 <!-- <span class="navbar-item p-0">|</span> -->
                 <a href="{% url 'happy_shop:login' %}" class="navbar-item pl-5 pr-5" style="border-right:solid 1px #eee;">
                     <b-icon size="is-small" pack="mdi" icon="login-variant"></b-icon>
-                    <span>登录</span> 
+                    <span>Login</span> 
                 </a>
                 {% endif %}
-                <a href="{% url 'happy_shop:cart' %}" class="navbar-item has-background-light pl-4 pr-4">
+                <!-- <a href="{% url 'happy_shop:cart' %}" class="navbar-item has-background-light pl-4 pr-4">
                     <span class="icon is-small"><i class="mdi mdi-cart-minus"></i></span>
                     <span class="pl-2">购物车(<span v-if='cartNum'>{$ cartNum $}</span> <i v-else>0</i>)</span> 
-                </a>
+                </a> -->
             </div>
         </div>    
     </nav>

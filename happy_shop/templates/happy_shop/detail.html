@@ -26,7 +26,7 @@
 
 {% block breadcrumb_content %}
 <b-breadcrumb align="is-left">
-    <b-breadcrumb-item tag='a' href="{% url 'happy_shop:index' %}" >首页</b-breadcrumb-item>
+    <b-breadcrumb-item tag='a' href="{% url 'happy_shop:index' %}" >Home</b-breadcrumb-item>
         {% for cate in spu.category.all %}
             {% if not cate.parent %}
                 <b-breadcrumb-item tag='a'>{{ cate.name }}</b-breadcrumb-item>
@@ -73,8 +73,8 @@
                                             <div class="level-item has-text-left">
                                               <div class="mt-1">
                                                     <p class="pl-2 heading sell-price">
-                                                        原价：￥{$ market_price $} </p>
-                                                    <p class="title has-text-white">￥{$ sell_price $} </p>
+                                                        Original price: ${$ market_price $} </p>
+                                                    <p class="title has-text-white">${$ sell_price $} </p>
                                               </div>
                                             </div>
                                           </nav>
@@ -84,7 +84,7 @@
                                             <div class="level-item has-text-centered">
                                               <div class="pl-5 mt-3 sales-border">
                                                 <p class="is-size-5 has-text-white">{$ sales $}</p>
-                                                <p class="heading">销量</p>
+                                                <p class="heading">Sales Volume</p>
                                               </div>
                                             </div>
                                         </nav>
@@ -114,19 +114,23 @@
                                 <template>
                                     <div class="level mt-4">
                                         <div class="level-left">
-                                            <label for="">数量：</label>
+                                            <label for="">Qty: </label>
                                             <b-field style="position: relative; top:5px">
                                                 <b-numberinput controls-position="compact" min="1" :max="stock" v-model="num" size="is-small">
                                                 </b-numberinput> 
                                             </b-field>
-                                            <span class="level-item ml-3 is-size-7">库存：{$ stock $}</span>
+                                            <span class="level-item ml-3 is-size-7">In Stock: {$ stock $}</span>
                                         </div>
                                     </div>
                                 </template>
                                 <!-- 商品数量操作 end -->
                                 <div class="buttons">
-                                    <b-button type="is-primary" @click="addCarts" :disabled="!stock">加入购物车</b-button>
-                                    <b-button type="is-primary is-light" :disabled="!stock" @click="payNow">立即购买</b-button>
+                                    <!-- <b-button type="is-primary" @click="addCarts" :disabled="!stock">加入购物车</b-button>
+                                    <b-button type="is-primary is-light" :disabled="!stock" @click="payNow">立即购买</b-button> -->
+                                    <b-button type="is-primary" disabled="disabled ">Add to Cart</b-button>
+                                    <b-button type="is-primary is-light"  disabled="disabled ">Buy Now</b-button>
+
+
                                     <!-- <a class="button is-primary is-light" :disabled="!stock" href="{% url 'happy_shop:pay' %}?sku_id="></a> -->
                                 </div>
                             </div>
@@ -135,13 +139,13 @@
                                 <template>
                                     <section>
                                         <b-tabs class="block">
-                                            <b-tab-item label="商品详情">
+                                            <b-tab-item label="Product Description">
                                                 <div class="content">
                                                     {{ spu.content|safe }}
                                                 </div>
                                             </b-tab-item>
-                                            <b-tab-item label="商品评价">
-                                                <div class="good-rate" >
+                                            <!-- <b-tab-item label="商品评价"> -->
+                                                <!-- <div class="good-rate" >
                                                     <div class=" is-pulled-left is-size has-text-danger-dark">满意度：{{ score }}</div>
                                                     <div class="rate is-pulled-right">
                                                         <span class="is-pulled-left is-size has-text-grey-light" 
@@ -164,7 +168,7 @@
                                                         <div class=" is-clearfix"></div>
                                                     </div>
                                                     <div class="is-clearfix"></div>
-                                                </div>                                              
+                                                </div>                                               -->
                                                 {% for comment in comments %}
                                                 <article class="media">
                                                     <figure class="media-left">
@@ -184,7 +188,7 @@
                                                 {% endfor %}
                                                     
                                             </b-tab-item>
-                                            <b-tab-item label="售后保障">{{ spu.after_services }}</b-tab-item>
+                                            <b-tab-item label="After-sale Service">{{ spu.after_services }}</b-tab-item>
                                         </b-tabs>
                             
                                     </section>
@@ -198,7 +202,7 @@
                 <div class="card">
                     <header class="card-header">
                       <p class="card-header-title is-centered">
-                        新品推荐
+                        New Arrivals
                       </p>
                     </header>
                     <div class="card-content">
@@ -208,13 +212,13 @@
                                 <img src="{{ MEDIA_URL }}{{ sku.main_picture }}" alt="{{ sku.spu.title }}">
                             </figure>
                             <h1 class="pt-3 pb-1 has-text-weight-medium is-size-4 has-text-danger-dark is-family-primary">
-                                ¥{{ sku.sell_price }}</h1>
+                                ${{ sku.sell_price }}</h1>
                             <h2 class="is-family-secondary is-size-14">
                                 <a href="">{{ sku.spu.title|truncatechars:10 }}...</a> 
                             </h2>
                             <div class="mt-2 foot">
-                                <div class="is-pulled-left is-size-7 has-text-grey-light">{{ sku.sales }}人付款</div>
-                                <div class=" is-pulled-right is-size-7 has-text-grey-light">5.0分</div>
+                                <div class="is-pulled-left is-size-7 has-text-grey-light">Purchaser: {{ sku.sales }}</div>
+                                <div class=" is-pulled-right is-size-7 has-text-grey-light">5.0</div>
                                 <div class="is-clearfix"></div>
                             </div>
                         </a>

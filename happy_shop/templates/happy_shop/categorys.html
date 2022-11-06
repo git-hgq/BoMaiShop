@@ -1,11 +1,11 @@
 {% extends 'happy_shop/base.html' %}
-{% block title %}全部分类{% endblock %}
+{% block title %}All{% endblock %}
 
 {% block breadcrumb_content %}
 <b-breadcrumb align="is-left">
-    <b-breadcrumb-item tag='a' href="{% url 'happy_shop:index' %}" >首页</b-breadcrumb-item>
+    <b-breadcrumb-item tag='a' href="{% url 'happy_shop:index' %}" >Home</b-breadcrumb-item>
     <!-- <b-breadcrumb-item tag='a' href="{% url 'happy_shop:user_profile' %}">个人中心</b-breadcrumb-item> -->
-    <b-breadcrumb-item tag='a' active>全部分类</b-breadcrumb-item>
+    <b-breadcrumb-item tag='a' active>All</b-breadcrumb-item>
 </b-breadcrumb>
 {% endblock %}
 
